@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Your cat is long</title>
+<style type="text/css">
+body {
+    background-image: url('longcat-background.png');
+    font-size: 150%;
+}
+#cat-container {
+    width: 900px;
+    margin: 0 auto;
+}
+#longcat-base {
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 0;
+    background-image: url('longcat-base.png');
+    z-index: -1;
+}
+#longcat-repeat {
+    position: relative;
+    top: 400px;
+    left: 143px;
+}
+#longcat-repeat-inner {
+    position: relative;
+    width: 300px;
+    height: 600000px;
+    background-image: url('longcat-repeat.png');
+    background-repeat: repeat-y;
+    margin-left: 100px;
+}
+#longcat-root {
+    width: 500px;
+    height: 500px;
+    background-image: url('longcat-root.png');
+    background-repeat: no-repeat;
+    position: relative;
+    left: 18px;
+    bottom: 0;
+}
+#reload {
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+}
+#image-courtesy {
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+}
+</style>
+</head>
+<body>
+<div id="cat-height"></div>
+<div id="cat-container">
+<div id="longcat-base"></div>
+<div id="longcat-repeat">
+    <div id="longcat-repeat-inner"></div>
+    <div id="longcat-root"></div>
+</div>
+</div>
+<div id="reload">
+    <a href="javascript: window.scrollTo(0, 0); location.reload();">Reload</a>
+</div>
+<div id="image-courtesy">
+    Image Courtesy: <a href="https://www.facebook.com/SancivetArt">Sancivet Art</a>
+</div>
+<script type="text/javascript">
+    var catHeight = Math.random() * Math.random() * 40000 + Math.random() * (Math.random() * 100000 + Math.random() * 120000);
+    catHeight = Math.round(catHeight * 100) / 100;
+    document.getElementById('longcat-repeat-inner').style.height = catHeight + 'px';
+    document.getElementById('cat-height').innerText = 'Your cat height is: ' + catHeight + 'px';
+</script>
+</body>
+</html>
